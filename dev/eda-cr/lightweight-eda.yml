@@ -4,9 +4,16 @@ kind: EDA
 metadata:
   name: eda
 spec:
+  automation_server_url: https://awx-awx.apps.aap-dev.ocp4.testing.ansible.com
+  automation_server_ssl_verify: 'no'
   extra_settings:
     - setting: GIT_SSL_NO_VERIFY
       value: "true"
+    - setting: EDA_MAX_RUNNING_ACTIVATIONS
+      value: '5'
+  image: quay.io/aizquier/eda-server
+  image_version: dispatcherv2
+  image_pull_policy: Always
 
   api:
     replicas: 1
@@ -16,8 +23,8 @@ spec:
     replicas: 1
     resource_requirements:
       requests: {}
-  schedular:
-    replicas: 1
+  scheduler:
+    replicas: 0
     resource_requirements:
       requests: {}
   default_worker:
@@ -28,3 +35,5 @@ spec:
     replicas: 3
     resource_requirements:
       requests: {}
+  redis:
+    replicas: 0

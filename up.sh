@@ -6,7 +6,7 @@
 
 # -- User Variables
 NAMESPACE=${NAMESPACE:-eda}
-QUAY_USER=${QUAY_USER:-developer}
+QUAY_USER=${QUAY_USER:-aizquier}
 TAG=${TAG:-$(git rev-parse --short HEAD)}
 DEV_TAG=${DEV_TAG:-dev}
 DEV_TAG_PUSH=${DEV_TAG_PUSH:-true}
@@ -114,8 +114,8 @@ make deploy IMG=$IMG:$TAG NAMESPACE=$NAMESPACE
 
 # -- Create CR
 # uncomment the CR you want to use
-$KUBE_APPLY dev/eda-cr/eda-openshift-cr.yml
+# $KUBE_APPLY dev/eda-cr/eda-openshift-cr.yml
 # $KUBE_APPLY dev/eda-cr/eda-k8s-ing.yml
 # $KUBE_APPLY dev/eda-cr/eda-k8s-nodeport-cr.yml
 # $KUBE_APPLY dev/eda-cr/eda-resource-quota-cr.yml
-# $KUBE_APPLY dev/eda-cr/lightweight-eda.yml
+$KUBE_APPLY dev/eda-cr/lightweight-eda.yml

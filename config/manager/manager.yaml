@@ -63,7 +63,7 @@ spec:
         - --leader-elect
         - --leader-election-id=eda-server-operator
         image: controller:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: eda-manager
         env:
         - name: ANSIBLE_GATHERING
